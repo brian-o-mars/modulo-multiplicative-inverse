@@ -50,8 +50,14 @@ fn multi_inv(i: i32, n: i32) -> i32 {
     //Important to note that modulo multiplicative inverses doesn't exist for all integers under certain modulo. 
     //If gcd(i, n) isn't 1, modulo multiplicative inverse doesn't exist for that integer 1 under modulo n and this code just returns 0 instead.
     if gcd == 1 {
+        // rem_euclid here does the same function as % in languages like python. % in rust sometimes produces unwanted results especially when the numerator is negative. 
+        // This is futher discuessed in this reddit thread - https://www.reddit.com/r/rust/comments/r1rmv5/rust_says_207_6_when_it_is_1/
         return t.rem_euclid(n);
     } else {
         return 0;
     }
 }
+
+
+
+//I took some code inspiration from https://www.extendedeuclideanalgorithm.com/code.php
